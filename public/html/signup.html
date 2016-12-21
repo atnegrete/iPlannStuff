@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/projects/planner/css/signup.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/projects/planner/public/js/signup.js"></script>
+    <h1 align="center"><font size="25">iplanstuff</font></h1>
+    <p align="center"><font size="5">Manage all your daily tasks, appoints and events, plus the ability to share them as well!</font></p>
+</head>
+
+<body>
+    <div align="center" class="container">
+        <div class="col-md-6 block">
+            <div id="logbox">
+                <form id="signup" name="signup">
+                    <h2>create an account</h2>
+                    <input name="user" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass" />
+                    <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass" />
+                    <input name="password2" type="password" placeholder="Confirm password" required="required" class="input pass" />
+                    <input name="email" type="email" placeholder="Email address" class="input pass" />
+                    <input name="phone" type="text" placeholder="Enter phone. (Numbers only)" required="required" class="input pass" />
+                    <select name="carrier" class="input pass" value="Select Carrier" required="required">
+                        <option value="" disabled selected> Choose Carrier </option>
+                        <option value="@vtext.com">Verizon</option>
+                        <option value="@tmomail.net">T-Mobile</option>
+                        <option value="@mobile.mycingular.com">Cingular</option>
+                        <option value="@message.alltel.com">Alltel</option>
+                        <option value="@messaging.sprintpcs.com">Sprint</option>
+                        <option value="@myboostmobile.com">Boost</option>
+                        <option value="@messaging.nextel.com">Nextel</option>
+                        <option value="@vmobl.com">Virgin Mobile</option>
+                        <option value="@txt.att.net">AT&T</option>
+                    </select>
+                    <input type="submit" value="Sign me up!" class="inputButton" />
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6 block">
+            <div id="logbox">
+                <form id="login" name="login">
+                    <h2>account login</h2>
+                    <input name="user" type="text" placeholder="enter your username" class="input pass" />
+                    <input name="password" type="password" placeholder="enter your password" required="required" class="input pass" />
+                    <input type="submit" value="Sign me in!" class="inputButton" />
+                    <div class="text-center">
+                        <a href="#" id="">forgot password</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
