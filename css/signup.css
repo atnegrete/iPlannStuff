@@ -6,10 +6,6 @@
   background-color: #8ac7d8;
 }
 
-body {
-  background: #5EDE24;
-}
-
 .container {
   display: -webkit-flex;
   display: flex;

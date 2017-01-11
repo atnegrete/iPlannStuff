@@ -4,6 +4,17 @@ body {
     background: #5EDE24;
 }
 
+#loader-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
+}
+
 .container-fluid {
     display: block;
     float: none;
@@ -219,7 +230,7 @@ body {
 #new_task_reminders_ul {
     list-style-type: none;
     background-color: white;
-    width: 60%;
+    width: 100%;
     display: block;
     padding: 0 15px;
     border: none;

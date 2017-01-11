@@ -61,7 +61,7 @@ function getFriendRequests(){
             }
         }
     }else {
-        $retVal["error"] = "Failed to load friend requests.";
+        $retVal["error"] = $requests;
     }
 }
 

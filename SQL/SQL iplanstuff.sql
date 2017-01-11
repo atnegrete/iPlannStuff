@@ -123,9 +123,3 @@ Values ("Hawaii", "America/Adak");
 insert into time_zones(time_zone_location, time_zone_value)
 Values ("Hawaii no DST", "Pacific/Honolulu");
 
-
-SELECT DISTINCT r.reminder_date, time_zones.time_zone_value, users.user_id
-FROM reminders r
-JOIN tasks t ON reminders.task_id = tasks.task_id
-WHERE reminders.reminder_date>='2017-01-05 21:32:00' AND reminders.reminder_date<='2017-01-05 23:32:00'
-		AND reminders.task_id = tasks.task_id AND tasks.user_id = users.user_id;

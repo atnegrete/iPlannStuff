@@ -59,8 +59,8 @@ app.factory('Scopes', function ($rootScope, $q, $http) {
         }
         })
         .success(function(data, status, headers, config) {
-            if(! ("error" in data)){
-                if(data.result != null && data.result.length > 0){
+            if(!("error" in data)){
+                if(data.result.length > 0){
                     friendsRequestsPromise.resolve(data.result);                    
                 }
                 if(data.result.length > 0) {
@@ -73,11 +73,7 @@ app.factory('Scopes', function ($rootScope, $q, $http) {
                     $("#share_tasks_navbar").append(badge);
                 }
             }else{
-                $.bootstrapGrowl(data.error,{
-                    type: 'warning',
-                    delay: 1000,
-                    allow_dismiss: false,
-                });
+                console.log(data.error);
             }
         })
         .error(function(data, status, headers, config) {

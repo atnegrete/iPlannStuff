@@ -3,7 +3,7 @@ var Task = function(task_name, task_created_date, task_due_date, task_category, 
     this.task_created_date = task_created_date;
     this.task_due_date = task_due_date;
     this.task_category = task_category;
-    this.reminder_dates = reminders;
+    this.reminder_dates = reminder_dates;
     this.reminder_inputs = reminder_inputs;
     this.task_id;
 

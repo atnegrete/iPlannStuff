@@ -7,12 +7,12 @@ app.controller('homeTasksController', function ( $scope, $http, Scopes) {
         var d = Scopes.getFriends();
         d.then(function(friends) {
             $scope.friends = friends;
-            console.log(friends);
+            //console.log(friends);
         }, function(reason) {
             alert('Failed: ' + reason);
         }, function(update) {
             $scope.friends = update;
-            console.log(update);
+            //console.log(update);
         });
 
         var friendsRequestsPromise = Scopes.getFriendsRequests();

@@ -5,7 +5,7 @@
         <h2 align="center" class="open-close" data-toggle="collapse" data-target="#open-close-div">add a friend to share tasks with! <span class="glyphicon glyphicon-resize-vertical"></span></h2>
         <div class="collapse" id="open-close-div">
             <input name="email" ng-maxlength="250" type="email" placeholder="enter email" class="input pass form-control" ng-model="email" required/>
-            <p align="center" ng-show="(addFriendForm.email.$invalid && !addFriendForm.email.$pristine) || addFriendForm.email.$error.required" class="help-block">invalid email</p>
+            <p align="center" style="color:red" ng-show="(addFriendForm.email.$invalid && !addFriendForm.email.$pristine) || addFriendForm.email.$error.required" class="help-block">enter valid email</p>
             <p align="center" ng-show="addFriendForm.email.$error.maxlength" class="help-block">email is too long</p>
             <input type="submit" value="Send request!" class="inputButton" ng-disabled="addFriendForm.$invalid"/>
         </div>
@@ -33,4 +33,12 @@
 
 
 <!--Share-Page handler-->
-<script src="home-tasks/home-tasks.handler.js"></script>
+<script>
+    verifySession();
+    $.getScript( "../js/page-handlers/share-page.handler.js", function( data, textStatus, jqxhr ) {
+        //console.log( data ); // Data returned
+        //console.log( textStatus ); // Success
+        //console.log( jqxhr.status ); // 200
+        //console.log( "Load was performed." );
+    });
+</script>

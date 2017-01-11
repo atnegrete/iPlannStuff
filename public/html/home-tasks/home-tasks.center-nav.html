@@ -4,9 +4,9 @@
 <button data-toggle="collapse" data-target="#new_task_well" id="new_task_btn">New Task</button>
 <div class="well collapse" id="new_task_well" style="position:relative;height:350px;">
 
-    <input class="input" id="new_task_name" type="text" placeholder="Task name">
+    <input class="input" id="new_task_name" type="text" placeholder="enter task name">
 
-    <input class="input date_input" id="new_task_date" type="text" placeholder="Date" readonly>
+    <input class="input date_input" id="new_task_date" type="text" placeholder="date" readonly>
 
     <div class="new_task_reminders_div">
         <ul id="new_task_reminders_ul" class="">
@@ -153,4 +153,9 @@
 </div>
 
 <!--Task Event Handlers-->
-<script src="home-tasks/home-tasks.handler.js"></script>
+<script>
+    verifySession();
+    $.getScript( "home-tasks/home-tasks.handler.js", function( data, textStatus, jqxhr ) {
+        
+    });
+</script>
