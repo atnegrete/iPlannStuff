@@ -1,13 +1,18 @@
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
-
-    /* Set gray background color and 100% height */
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-    height: 100% ;
+/*Setting background to green*/
+body {
+    background: #5EDE24;
 }
+
+.container-fluid {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-width: 400px;
+}
+
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and(max-width: 767 px) {
@@ -20,81 +25,41 @@
     }
 }
 
-.panel-group {
-    max-width: 100%;
-}
-
-.panel-default > #add_tasks_panel {
-    background-color: royalblue;
-    text-align: center;
-}
-
-.panel-default > #urgent_tasks_panel{
-    background-color: lightcoral;
-    text-align: center;
-}
-
-.panel-default > #all_tasks_panel {
-    background-color: lightblue;
-    text-align: center;
-}
-
-.panel-default > #completed_tasks_panel {
-    background-color: lightgreen;
-    text-align: center;
-}
-
-#new_task_well {
-    background-color: #DCDDDB;
+.panel-body {
+    width: 100%;
+    min-width: 340px;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 #new_task_btn {
-    margin-left: 7.5%;
+    font-family: Arial;
+    color: white;
+    font-size: 20px;
+    background: transparent;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid white 3px;
+    outline: none;
     margin-bottom: 5px;
-    width: 85%;
-    background-color: #5EDE24;
+}
+
+#new_task_btn:hover {
+  background: white;
+  color: #5EDE24;
+  text-decoration: none;
 }
 
 #columns {
-    width: 70%; 
+    width: 50%; 
 }
 
-#new_task_name {
-    border-color: black;
-    width: 95%;
-    margin-bottom: 5px;
-    height: 40px;
-    font-size: 15px;
-}
-
-#new_task_name:active {
-    outline:none;
-}
-
-text:focus, #new_task_name:focus {
-    outline:none;
-}
-
-
-#new_task_date {
-    border-color: black;
-    width: 45%;
-    margin-bottom: 5px;
-    height: 40px;
-    font-size: 15px;
-    margin-top: 5px;
-}
-
-#new_task_date:active {
-    outline:none;
-}
-
-text:focus, #new_task_date:focus {
-    outline:none;
-}
-
-#save_new_task_btn {
-  -webkit-border-radius: 0;
+#add_new_task_btn {
+  /*-webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
   text-shadow: 1px 1px 3px #949494;
@@ -107,17 +72,31 @@ text:focus, #new_task_date:focus {
   background: #5EDE24;
   padding: 10px 20px 10px 20px;
   border: solid #e8e8e8 0px;
-  text-decoration: none;
-  width: 55%;
+  text-decoration: none;*/
+    font-family: Arial;
+    color: #5EDE24;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid #5EDE24 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 40%;
+    margin-left: 13%;
 }
 
-#save_new_task_btn:hover {
-  background: #3b9c0e;
+#add_new_task_btn:hover {
+  background: #5EDE24;
+  color: white;
   text-decoration: none;
 }
 
 #cancel_new_task_btn {
-  -webkit-border-radius: 0;
+  /*-webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
   -webkit-box-shadow: 3px 3px 8px #666666;
@@ -128,40 +107,259 @@ text:focus, #new_task_date:focus {
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   border: solid #e8e8e8 0px;
-  text-decoration: none;
-  width: 38%;
-}
-
-#cancel_new_task_btn:hover {
-  background: #c9c9c9;
-  text-decoration: none;
-}
-
-#category_dropdown_div {
-    display: inline;
-}
-
-#new_task_category_btn {
-    width: 45%;
-    height: 40px;
-    margin-bottom: 10px;
-}
-
-#item{
-    width: 80%;
-
-}
-
-#new_task_notification_btn {
-    width: 80%;
-    height: 40px;
+  text-decoration: none;*/
+    width: 35%;
+    margin-right: 10%;
+    font-family: Arial;
+    color: grey;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
     margin-bottom: 5px;
 }
 
-.new_task_add_reminder {
+#cancel_new_task_btn:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
+}
+
+.input {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.input {
+  background-color: white;
+  width: 60%;
+  height: 50px;
+  display: block;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+  margin: 5px;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: #5EDE24 !important;
+}
+.input:hover {
+  border-bottom-color: #dcdcdc;
+}
+.input:invalid {
+  box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+/*Calendar Image*/
+.date_input[type='text'] {
+    background-image: url(../../planner/resources/images/calendar.png);
+    background-position: 90% 15px;
+    background-repeat: no-repeat;
+}
+
+/*Adding Reminder CSS*/
+.input_n[type=number] {
+    width: 15%;
+}
+
+.select_n {
+    width: 23%;
+    border: none;
+}
+
+.new_task_reminders_div {
+  width: 75%;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+}
+.new_task_reminders_div:focus {
+  outline: none;
+  border-bottom-color: #5EDE24 !important;
+}
+.new_task_reminders_div:hover {
+  border-bottom-color: #dcdcdc;
+}
+.new_task_reminders_div:invalid {
+  box-shadow: none;
+}
+
+
+
+/* Pluss Sign for adding a Reminder*/
+#new_task_add_reminder {
+    position: relative;
+    top: 10px;
     width: 6%;
     background-color: transparent;
     border: none;
     font: bold;
     font-size: 25px;
+}
+#new_task_add_reminder:active{
+    width: 6%;
+    background-color: transparent;
+    border: none;
+    font: bold;
+    font-size: 25px;
+}
+
+/*Reminders List*/
+#new_task_reminders_ul {
+    list-style-type: none;
+    background-color: white;
+    width: 60%;
+    display: block;
+    padding: 0 15px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    margin: 5px;
+}
+
+/*Actual Task List Item*/
+.task_li {
+    position: relative;
+    left: -40px;
+    width: 100%;
+    height: 40px;
+    background:white;
+}
+
+.task_check_box {
+    position: relative;
+    top: 20%;
+    outline: none;
+}
+
+.task_name {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    width: 35%;
+}
+
+.task_name:active {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+}
+
+.task_calendar {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    background-image: url(../../planner/resources/images/calendar.png);
+    background-position: 99% 2px;
+    background-repeat: no-repeat;
+    width: 37%;
+}
+
+
+.task_reminders_button {
+    position:relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    top: 1px;
+}
+
+.task_share_button {
+    position: relative;
+    background-color: transparent;
+    top:20%;
+    border: transparent;
+    outline: none;
+}
+
+.task_delete_button {
+    position: relative;
+    top: 20%;
+    outline: none;
+}
+
+.friend_button {
+    background-position: 90% 3px;
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border: 2px solid #5EDE24 !important;
+}
+
+.friend_button:hover {
+    border: 2px solid white !important;
+    color: white !important;
+    background-color: #5EDE24 !important;
+    outline: none !important;
+}
+
+.friend_button:active {
+    outline: none !important;
+
+}
+
+.friends_well {
+    z-index: 10;
+}
+
+.task_update_div {
+    width: 100%;
+    height: 50px;
+
+}
+
+.task_update_button {
+    font-family: Arial;
+    color: #5EDE24;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid #5EDE24 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 25%;
+    margin-left: 0px;
+}
+
+.task_update_button:hover {
+  background:#5EDE24;
+  color: white;
+  text-decoration: none;
+}
+
+.task_cancel_update_button {
+    font-family: Arial;
+    color: grey;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 25%;
+    margin-right: 0px;
+}
+
+.task_cancel_update_button:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
 }

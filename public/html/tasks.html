@@ -4,141 +4,74 @@
 <head>
     <title>iPlanStuff</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" media="screen">
+    <!--Required Start-->
+    <meta name="viewport" content="width=device-width, initial-scale=.65, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.css"/>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+    <script src="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.js"></script>
+    <!--Required End-->
+    <!--My CSS Files Start-->
     <link rel="stylesheet" href="/projects/planner/css/tasks.css" type="text/css">
     <link rel="stylesheet" href="/projects/planner/css/tasks_footer.css" type="text/css">
     <link rel="stylesheet" href="/projects/planner/css/tasks_left-sidebar.css" type="text/css">
     <link rel="stylesheet" href="/projects/planner/css/tasks_right-sidebar.css" type="text/css">
     <link rel="stylesheet" href="/projects/planner/css/tasks_navbar.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/fonts/font_roboto/roboto.css"/>
-	<link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.js"></script>
-    <script src="../js/tasks.js"></script>
-    <script>
+    <link rel="stylesheet" href="/projects/planner/css/signup.css" type="text/css">
+    <link rel="stylesheet" href="/projects/planner/css/share-page.css" type="text/css">
+    <!--My CSS Files End-->
 
-    </script>
+
+    <!--Dialog Start-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Dialog End-->
+
+
 </head>
 
 
-<body onload="doOnLoad();">
+<body ng-app="tasksApp">
+    
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">iPlanStuff</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a>
-                    </li>
-                    <li><a href="#">Notifications</a>
-                    </li>
-                    <li><a href="#">Settings</a>
-                    </li>
-                    <li><a href="#">OTHER</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li id="logout"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container-fluid center" id="columns">
-        <div class="row content">
+    <!--<div ng-include='"templates/footer.html"'></div>-->
 
-            <div class="col-sm-3 sidenav" id="left-sidenav">
-                <div class="well">
-                    <p><a href="#">This Week</a>
-                    </p>
-                    <p><a href="#">Planner</a>
-                    </p>
-                    <p><a href="#">Share Tasks</a>
-                    </p>
-                </div>
-            </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 
-            <div class="col-sm-6 sidenav">
-                <div class="well">
-                    <h1>Tasks</h1>
-                    
-                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#new_task_well" id="new_task_btn">Add a Task!</button>
-                    <div class="well collapse" id="new_task_well" style="position:relative;height:350px;">
+    <!--Page Routing-->
+    <script src="app.tasks.config.js"></script>
 
-                        <input id="new_task_name" type="text" placeholder="Task">
-                        <br>
+    <!--Controllers-->
+    <!--<script src="../js/angular_controllers.js"></script>-->
+    <script src="../js/page-controllers/home-tasks.controller.js"></script>
+    <script src="../js/page-controllers/login-page.controller.js"></script>
+    <script src="../js/page-controllers/signup-page.controller.js"></script>
+    <script src="../js/page-controllers/share-page.controller.js"></script>
+    <script src="../js/page-controllers/logout.controller.js"></script>
 
-                        <input id="new_task_date" type="text" placeholder="Task Date"><span><img id="calendar_icon" src="../../resources/images/calendar.png" border="0"></span>
-                        <div class="dropdown" id="category_dropdown_div">
-                            <button id="new_task_category_btn" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Category <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="new_task_category_btn">
-                                <li class="item" role="presentation"><a role="menuitem" tabindex="-1">Personal</a></li>
-                                <li class="item" role="presentation"><a role="menuitem" tabindex="-1">Work</a></li>
-                                <li class="item" role="presentation"><a role="menuitem" tabindex="-1">School</a></li>
-                            </ul>
-                        </div>
-                        <br>
+    <!--Directives-->
+    <script src="../js/app-directives/app.tasks.directive.js"></script>
+    <script src="../js/app-directives/share-page.directive.js"></script>
+    <script src="../js/app-directives/share-task.directive.js"></script>
 
-                        <div class="dropdown" id="notification_dropdown_div">
-                            <button id="new_task_notification_btn" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Notifications <span class="caret"></span></button> 
-                                <input class="new_task_add_reminder" type="button" value="-" style="color:red"> <input class="new_task_add_reminder" type="button" value="+" style="color:green">
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="new_task_notification_btn">
-                                <li id="item" role="presentation"><a role="menuitem" tabindex="-1">15 mins before</a></li>
-                                <li id="item" role="presentation"><a role="menuitem" tabindex="-1">30 mins before</a></li>
-                                <li id="item" role="presentation"><a role="menuitem" tabindex="-1">1 hour before</a></li>
-                                <li id="item" role="presentation"><a role="menuitem" tabindex="-1">1 day before</a></li>
-                                <li id="item" role="presentation"><a role="menuitem" tabindex="-1">1 week before</a></li>
-                            </ul>
-                        </div>
-                        
-                        <input id="save_new_task_btn" type="button" value="Add">
-                        <input id="cancel_new_task_btn" type="button" value="Cancel">
-                    </div>
+    <!--My Scripts Start-->
+    <script src="../js/tasks.js"></script>
+    <script src="../js/lib/input_checker.js"></script>
+    <script src="../js/lib/date_helper.js"></script>
+    <script src="../js/task_handlers/obj_task.js"></script>
+    <script src="../js/user_handlers/obj_user.js"></script>
+    <!--My Scripts End-->
 
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" id="urgent_tasks_panel">Do Dis Now </div>
-                            <div class="panel-body">~ the tasks</div>
-                        </div>
+    <div ng-view></div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading" id="all_tasks_panel">All Tasks</div>
-                            <div class="panel-body">~ the tasks</div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading" id="completed_tasks_panel">Completed Tasks</div>
-                            <div class="panel-body">~ the tasks</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3 sidenav" id="right-sidenav">
-                <div class="well">
-                    <div class="well">
-                        <p>Stuff</p>
-                    </div>
-                    <div class="well">
-                        <p>Stuff</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    
 </body>
 
 </html>

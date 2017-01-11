@@ -1,0 +1,15 @@
+
+/*Make Background Green*/
+body {
+  background: #5EDE24;
+}
+
+/*CSS for News Feed (Wells)*/
+.well {
+    border: transparent;
+    background: #5EDE24;
+}
+
+.check_item {
+    font-size: 25px;
+}

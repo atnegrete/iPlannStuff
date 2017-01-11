@@ -1,7 +1,5 @@
 <?php
 session_start();
-$retVal = array();
-
 
 function setLoginSessions($id,$user,$phone_and_carrier){
     $_SESSION["id"] = $id;
@@ -11,5 +9,9 @@ function setLoginSessions($id,$user,$phone_and_carrier){
 
 function endSession(){
     session_destroy();
+}
+
+function checkSesssion($id, $user){
+
 }
 ?>

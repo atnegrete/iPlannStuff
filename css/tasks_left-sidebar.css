@@ -1,0 +1,29 @@
+/*CSS for Left Side-Nav Div*/
+#left-sidenav {
+    background: transparent;
+    border: transparent;
+}
+
+/*CSS for Left Side-Nav Buttons*/
+.left-sidenav_button {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 20px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: none;
+    border: transparent;
+    text-align: left;
+}
+
+.left-sidenav_button:hover {
+    background: #5EDE24;
+    text-decoration: none; 
+}
+
+.left-sidenav_button:active {
+    background: #5EDE24;
+    text-decoration: none; 
+}

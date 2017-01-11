@@ -3,21 +3,46 @@
 <html lang="en">
 
 <head>
+    <!--Required Start-->
     <meta name="viewport" content="width=device-width, initial-scale=1" media="screen">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/projects/planner/css/signup.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Required End-->
     <script src="/projects/planner/public/js/signup.js"></script>
-    <h1 align="center"><font size="25">iplanstuff</font></h1>
-    <p align="center"><font size="5">Manage all your daily tasks, appoints and events, plus the ability to share them as well!</font></p>
+    <script src="/projects/planner/public/js/lib/date_helper.js"></script>
 </head>
 
 <body>
-    <div align="center" class="container">
-        <div class="col-md-6 block">
-            <div id="logbox">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/projects/planner/public/html/welcome.html">iPlanStuff</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Helpful Tips</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="signup"><a href="#"><span class="glyphicon glyphicon-user"></span> Create Account</a></li>
+                        <li id="logout"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h1 align="center"><font size="25">iPlanStuff</font></h1>
+
+    <div class="container-fluid center">
+        <div class="col-md-6 sidenav">
+            <div align="center" id="logbox">
                 <form id="signup" name="signup">
                     <h2>create an account</h2>
                     <input name="user" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass" />
@@ -25,7 +50,7 @@
                     <input name="password2" type="password" placeholder="Confirm password" required="required" class="input pass" />
                     <input name="email" type="email" placeholder="Email address" class="input pass" />
                     <input name="phone" type="text" placeholder="Enter phone. (Numbers only)" required="required" class="input pass" />
-                    <select name="carrier" class="input pass" value="Select Carrier" required="required">
+                    <select name="carrier" class="input pass" required="required">
                         <option value="" disabled selected> Choose Carrier </option>
                         <option value="@vtext.com">Verizon</option>
                         <option value="@tmomail.net">T-Mobile</option>
@@ -37,12 +62,23 @@
                         <option value="@vmobl.com">Virgin Mobile</option>
                         <option value="@txt.att.net">AT&T</option>
                     </select>
+                    <select name="carrier" class="input pass" required="required">
+                        <option value="" disabled selected> Choose Time Zone </option>
+                        <option value="1">Eastern</option>
+                        <option value="2">Central</option>
+                        <option value="3">Mountain</option>
+                        <option value="4">Mountain no DST</option>
+                        <option value="5">Pacific</option>
+                        <option value="6">Alaska</option>
+                        <option value="7">Hawaii</option>
+                        <option value="8">Hawaii no DST</option>
+                    </select>
                     <input type="submit" value="Sign me up!" class="inputButton" />
                 </form>
             </div>
         </div>
 
-        <div class="col-md-6 block">
+        <div align="center" class="col-md-6 sidenav">
             <div id="logbox">
                 <form id="login" name="login">
                     <h2>account login</h2>

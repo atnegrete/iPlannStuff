@@ -1,0 +1,68 @@
+.request_div {
+    width: 75%;
+    display: block;
+    margin: 0 auto 15px;
+    padding: 15px 15px;
+    border: solid #000;
+    border-width: 1px 1px;
+}
+
+.request_email{
+    width: 100%;
+    border: none;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.request_accept {
+    width: 60%;
+    background: #5EDE24;
+}
+
+.request_cancel {
+    width: 30%;
+    margin-left: 5%;
+    background: #ff0000;
+
+
+}
+
+.request_button {
+    color: white;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+.request_button:active {
+  top: 5px;
+  box-shadow: none;
+}
+
+.share-tasks-friend-name {
+    width: 50% !important;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border: 2px solid #5EDE24 !important;
+    margin-bottom: 5px;
+}
+
+.share-tasks-friend-remove {
+    font-family: Arial;
+    color: grey;
+    font-size: 17px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 30% !important;
+    margin-right: 0px;
+}
+.share-tasks-friend-remove:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
+}

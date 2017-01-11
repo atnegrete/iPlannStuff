@@ -1,16 +1,12 @@
 $(document).ready(function() {
 
+    clearSignUpForm();
+
     $("form[name='signup']").validate({
         submitHandler : function(form) {
             if(checkForm()){
                 submitForm();
             }
-        }
-    });
-
-    $("#login").validate({
-        submitHandler : function(form) {
-            loginForm();
         }
     });
 });
@@ -53,40 +49,23 @@ function submitForm(){
             email: document.forms["signup"]["email"].value,
             phone: document.forms["signup"]["phone"].value,
             carrier: document.forms["signup"]["carrier"].value,
-            created_date: new DateHelper().convertDateToDateTimeFormat(new Date())
+            created_date: new DateHelper().convertDateToDateTimeFormat(new Date()),
+            time_zone_id: document.forms["signup"]["time_zone"].value
         },
         success: function(retVal){
             if( !('error' in retVal) ) {
-                alert("Sucess signing up. Please log in.");
+                $.bootstrapGrowl("Sucess signing up. Please log in.",{
+                    type: 'success',
+                    delay: 3000,
+                    allow_dismiss: false,
+                });
                 clearSignUpForm();
+                window.location.href = "#login";
             }
             else {
                 document.forms["signup"]["password"].value = "";
                 document.forms["signup"]["password2"].value = "";
                 alert(retVal.error);
-            }
-        }
-    });
-}
-
-function loginForm(){
-    var user = document.forms["login"]["user"].value;
-    var pass = document.forms["login"]["password"].value;
-    $.ajax({
-        type: "POST",
-        url: "/projects/planner/resources/php/login.php",
-        data: {
-            user: user,
-            password: pass
-        },
-        dataType: "json",
-        success: function(data){
-            if(data.result == true){
-                console.log("Logged in successfully");
-                location.replace("../html/tasks.html");                
-            }else{
-                alert("Invalid username or password.");
-                pass = "";
             }
         }
     });
@@ -100,5 +79,6 @@ function clearSignUpForm(){
     form["email"].value = "";
     form["phone"].value = "";
     form["carrier"].value = "";
+    form["time_zone"].value = "";
 }
 

@@ -1,0 +1,156 @@
+<!--Center (Tasks Area)-->
+<h1>Tasks</h1>
+
+<button data-toggle="collapse" data-target="#new_task_well" id="new_task_btn">New Task</button>
+<div class="well collapse" id="new_task_well" style="position:relative;height:350px;">
+
+    <input class="input" id="new_task_name" type="text" placeholder="Task name">
+
+    <input class="input date_input" id="new_task_date" type="text" placeholder="Date" readonly>
+
+    <div class="new_task_reminders_div">
+        <ul id="new_task_reminders_ul" class="">
+            <li><span class="glyphicon glyphicon-time"></span> Reminders -</li>
+        </ul>
+    </div>
+
+    <div class="input" id="new_task_reminders_div">
+        <input class="input_n" id="input_n1js" type="number">
+        <select class="select_n" id="select_n1js">
+            <option value="min">min</option>
+            <option value="hr">hr</option>
+            <option value="day">day</option>
+            <option value="week">week</option>
+        </select>
+        <button class="glyphicon glyphicon-plus" id="new_task_add_reminder" style="color:green"> </button>
+    </div>
+
+    <select class="input" id="new_task_category" required="required">
+        <option value="" disabled selected> Category </option>
+        <option ng-repeat="(key, value) in user_category_ids" value="{{key}}"> {{value[0]}} </option>
+    </select>
+    
+    <input data-toggle="collapse" data-target="#new_task_well" id="add_new_task_btn" type="button" value="Add">
+    <input data-toggle="collapse" data-target="#new_task_well" id="cancel_new_task_btn" type="button" value="Cancel" onclick="Task.resetTaskFields()">
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-danger">
+        <div class="panel-heading" id="urgent_tasks_panel">Overdue Tasks</div>
+        <div class="panel-body">
+            <ul style="list-style-type:none" id="overdue_list">
+                <li ng-repeat="task in overdue_tasks" task-directive data-task-id="{{task.task_id}}"  data-task-category-id="{{task.category_id}}">
+                    <div class="task_li" role="group" aria-label="Button group with nested dropdown">
+                        <input type="image" class="task_check_box" src="../../resources/images/ic_check_box_outline_blank_black_24dp_1x.png" data-task-active="1" data-task-id="{{task.task_id}}">
+                        <input type="text" class="task_name" value="{{task.task_name}}">
+                        <input type="text" class="task_calendar" id="calendar{{task.task_id}}" data-task-date="{{task.due_date}}" readonly>
+
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle task_reminders_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-time"></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <div ng-repeat="reminder in task.task_reminders" data-task-reminder-id="{{reminder.reminder_id}}">
+                                    <span> <img src="../../resources/images/ic_alarm_black_24dp_1x.png" alt="alarm">
+                                    - {{reminder.reminder_input}} {{reminder.reminder_select}} before</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
+                            <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
+                                <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
+                                    <button class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                </div>
+                            </div>
+                        <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading" id="all_tasks_panel">Tasks for this Week</div>
+        <div class="panel-body">
+                <ul style="list-style-type:none;" id="weekly_list">
+                <li ng-repeat="task in weekly_tasks" task-directive data-task-id="{{task.task_id}}"  data-task-category-id="{{task.category_id}}">
+                    <div class="task_li" role="group" aria-label="Button group with nested dropdown">
+                        <input type="image" class="task_check_box" src="../../resources/images/ic_check_box_outline_blank_black_24dp_1x.png" data-task-active="1" data-task-id="{{task.task_id}}">
+                        <input type="text" class="task_name" value="{{task.task_name}}">
+                        <input type="text" class="task_calendar" id="calendar{{task.task_id}}" data-task-date="{{task.due_date}}" readonly>
+
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle task_reminders_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-time"></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <div>
+                                    <span>Reminders </hr></span>
+                                </div>
+                                <div ng-repeat="reminder in task.task_reminders" data-task-reminder-id="{{reminder.reminder_id}}">
+                                    <span> <img src="../../resources/images/ic_alarm_black_24dp_1x.png" alt="alarm">
+                                    - {{reminder.reminder_input}} {{reminder.reminder_select}} before</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
+                            <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
+                                <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
+                                    <button class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                </div>
+                            </div>
+                        <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">    
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading" id="completed_tasks_panel">Recently Completed Tasks</div>
+        <div class="panel-body">
+            <ul id="recently_completed_list" style="list-style-type:none">
+                <li class="task_item" ng-repeat="task in recently_completed_tasks" task-directive data-task-id="{{task.task_id}}"  data-task-category-id="{{task.category_id}}">
+                    <div class="task_li" role="group" aria-label="Button group with nested dropdown">
+                        <input type="image" class="task_check_box" src="../../resources/images/ic_check_box_black_24dp_1x.png" data-task-active="0" data-task-id="{{task.task_id}}">
+                        <input type="text" class="task_name" value="{{task.task_name}}" readonly>
+                        <input type="text" class="task_calendar" id="calendar{{task.task_id}}" data-task-date="{{task.due_date}}" readonly>
+
+                        <div class="btn-group" role="group">
+                            <button id="reminderDropDown" type="button" class="btn btn-secondary dropdown-toggle task_reminders_button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-time reminder_icon"></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="reminderDropDown">
+                                <div>
+                                    <span>Reminders </hr></span>
+                                </div>
+                                <div ng-repeat="reminder in task.task_reminders" data-task-reminder-id="{{reminder.reminder_id}}">
+                                    <span> <img src="../../resources/images/ic_alarm_black_24dp_1x.png" alt="alarm">
+                                    - {{reminder.reminder_input}} {{reminder.reminder_select}} before</span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
+                            <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
+                                <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
+                                    <button class="list-group-item friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                </div>
+                            </div>
+                        <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">
+                    </div>
+                    <div class="task_update_div">
+                        <input class="task_update_button" type="button" value="Update">
+                        <input class="task_cancel_update_button" type="button" value="Cancel">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!--Task Event Handlers-->
+<script src="home-tasks/home-tasks.handler.js"></script>

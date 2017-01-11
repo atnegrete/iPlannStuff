@@ -20,4 +20,17 @@ if(isset($_POST["functionname"])){
     }
 }
 
+if(isset($_POST["functionname"])){
+    if($_POST["functionname"] == "getUserName"){
+        include_once("./user.php");
+        $retVal = array();
+        if($val = User::getUserName($_SESSION["id"])){
+            $retVal["user_name"] = $val;
+        }else{
+            $retVal["error"] = $val;
+        }
+        echo json_decode($retVal);
+    }
+}
+
 ?>

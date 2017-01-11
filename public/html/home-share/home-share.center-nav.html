@@ -1,0 +1,32 @@
+
+<!--Center (Share Tasks)-->
+<div id="logbox">
+    <form name="addFriendForm" ng-submit="inviteFriendForm(addFriendForm.$valid)" novalidate>
+        <h2 align="center">add a friend to share tasks with!</h2>
+        <input name="email" ng-maxlength="250" type="email" placeholder="enter email" class="input pass form-control" ng-model="email" required/>
+        <p align="center" ng-show="(addFriendForm.email.$invalid && !addFriendForm.email.$pristine) || addFriendForm.email.$error.required" class="help-block">invalid email</p>
+        <p align="center" ng-show="addFriendForm.email.$error.maxlength" class="help-block">email is too long</p>
+        <input type="submit" value="Send request!" class="inputButton" ng-disabled="addFriendForm.$invalid"/>
+    </form>
+</div>
+    
+<div id="logbox" class="request_element" ng-hide="!friendRequests.length">
+    <h2 align="center" class="request_element">current requests</h2>
+    <div class="request_div request_element" ng-repeat="request in friendRequests" friend-request-directive>
+        <input type="text" class="request_email request_element" value="From: {{request.user_name}}"readonly/>
+        <input type="button" class="request_accept request_button " value="Accept Request" data-accept-request-id="{{request.invite_id}}"/>
+        <input type="button" class="request_cancel request_button request_element" value="Reject" data-reject-request-id="{{request.invite_id}}"/>
+    </div>
+</div>
+
+
+<div id="logbox" class="" ng-hide="false" ng-init="init()">
+    <h2 align="center" class="">your friends :)</h2>
+    <div class="" ng-repeat="friend in friends">
+        <input type="text" class="form-control share-tasks-friend-name" value="{{friend.name}}" readonly/>
+        <input type="button" class="share-tasks-friend-remove" value="Remove" data-remove-friend-id="{{friend.id}}"/>
+    </div>
+</div>
+
+<!--Share-Page handler-->
+<script src="home-tasks/home-tasks.handler.js"></script>
