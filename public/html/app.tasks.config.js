@@ -22,10 +22,73 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.factory('Scopes', function ($rootScope) {
+app.factory('Scopes', function ($rootScope, $q, $http) {
     var mem = {};
+
+    var loadFriends = function(){
+        var friendsPromise = $q.defer();
+        $http({
+                url: "/projects/planner/resources/php/init_handler/task_page_init_handler.php",
+                method: "POST",
+                data: JSON.stringify({
+                    functionname: "getUserFriends",
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .success(function(data, status, headers, config) {
+                friendsPromise.resolve(data.friends);
+            })
+            .error(function(data, status, headers, config) {
+                alert("Friends Request failed");
+        });
+        return friendsPromise.promise;
+    }
+
+    var loadFriendRequests = function(){
+        var friendsRequestsPromise = $q.defer();
+        $http({
+        url: "/projects/planner/resources/php/task_handlers/task_sharing_handler_one.php",
+        method: "POST",
+        data: JSON.stringify({
+            functionname: "getFriendRequests"
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        .success(function(data, status, headers, config) {
+            if(! ("error" in data)){
+                if(data.result != null && data.result.length > 0){
+                    friendsRequestsPromise.resolve(data.result);                    
+                }
+                if(data.result.length > 0) {
+                    $.bootstrapGrowl("You have " + data.result.length + " friend request/s.",{
+                        type: 'success',
+                        delay: 1000,
+                        allow_dismiss: false,
+                    });
+                    var badge = '<span class="w3-badge w3-margin-left w3-green">'+data.result.length+'</span>';
+                    $("#share_tasks_navbar").append(badge);
+                }
+            }else{
+                $.bootstrapGrowl(data.error,{
+                    type: 'warning',
+                    delay: 1000,
+                    allow_dismiss: false,
+                });
+            }
+        })
+        .error(function(data, status, headers, config) {
+            alert(status);
+        });
+        return friendsRequestsPromise.promise;
+    }
  
     return {
+        getFriendsRequests : loadFriendRequests,
+        getFriends : loadFriends,
         store: function (key, value) {
             mem[key] = value;
         },

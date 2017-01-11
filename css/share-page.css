@@ -1,3 +1,7 @@
+.open-close {
+    cursor: pointer;
+}
+
 .request_div {
     width: 75%;
     display: block;
@@ -14,16 +18,45 @@
 }
 
 .request_accept {
-    width: 60%;
-    background: #5EDE24;
+    font-family: Arial;
+    color: #5EDE24 !important;
+    font-size: 15px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 2px;
+    width: 64%;
+    border: 2px solid #5EDE24;
+}
+
+.request_accept:hover {
+    background-color: #5EDE24;
+    color: white !important;
+    text-decoration: none;
 }
 
 .request_cancel {
     width: 30%;
-    margin-left: 5%;
-    background: #ff0000;
+    font-family: Arial;
+    color: red !important;
+    font-size: 15px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 2px;
+    border: 2px solid red;
+}
 
-
+.request_cancel:hover {
+    background-color: red;
+    color: white !important;
+    text-decoration: none;
 }
 
 .request_button {
@@ -37,13 +70,25 @@
   box-shadow: none;
 }
 
+.friends-div {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
 .share-tasks-friend-name {
-    width: 50% !important;
-    border: none;
-    padding: 5px 10px 5px 10px;
+    font-family: Arial;
+    color: white;
+    font-size: 17px;
+    background-color: #5EDE24;
     text-decoration: none;
-    border: 2px solid #5EDE24 !important;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
     margin-bottom: 5px;
+    width: 50%;
+    padding-left: 5%;
+    border: transparent;
 }
 
 .share-tasks-friend-remove {
@@ -58,7 +103,7 @@
     border: solid grey 3px;
     outline: none;
     margin-bottom: 5px;
-    width: 30% !important;
+    width: 30%;
     margin-right: 0px;
 }
 .share-tasks-friend-remove:hover {

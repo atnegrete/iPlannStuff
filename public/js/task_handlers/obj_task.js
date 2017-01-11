@@ -294,25 +294,25 @@ Task.deleteTask = function(task_id){
 }
 
 Task.addDeleteTaskDialog = function(task_id){
-    if(!($("#delete_dialog"+task_id).length)){
-        var dialog_string = '<div class="task_delete_dialog" id="delete_dialog'+task_id+'" data-delete-id="'+task_id+'" title="Delete Task">Are you sure you want to permanently delete this task?</div>';
-        $("[data-delete-id='"+task_id+"']").append(dialog_string);
-        // $("[data-delete-id='"+task_id+"']").append(dialog_string);
-        $("#delete_dialog"+task_id).dialog({
-            autoOpen: false,
-            resizable: false,
-            modal: true,
-            buttons: {
-                "Delete Task" : function(){
-                    $(this).dialog("close");
-                    Task.deleteTask($(this).data("delete-id"));
-                },
-                Cancel : function(){
-                    $(this).dialog("close");
-                }
-            }
-        });
-    }
+    // if(!($("#delete_dialog"+task_id).length)){
+    //     var dialog_string = '<div class="task_delete_dialog" id="delete_dialog'+task_id+'" data-delete-id="'+task_id+'" title="Delete Task">Are you sure you want to permanently delete this task?</div>';
+    //     $("[data-delete-id='"+task_id+"']").append(dialog_string);
+    //     // $("[data-delete-id='"+task_id+"']").append(dialog_string);
+    //     $("#delete_dialog"+task_id).dialog({
+    //         autoOpen: false,
+    //         resizable: false,
+    //         modal: true,
+    //         buttons: {
+    //             "Delete Task" : function(){
+    //                 $(this).dialog("close");
+    //                 Task.deleteTask($(this).data("delete-id"));
+    //             },
+    //             Cancel : function(){
+    //                 $(this).dialog("close");
+    //             }
+    //         }
+    //     });
+    // }
 }
 
 Task.handleTaskSharingFriends = function(scope,all_friends, already_shared_friends, scope_task, scope_friend){

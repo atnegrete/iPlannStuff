@@ -75,7 +75,6 @@ UserHandler.acceptUserRequest = function(invite_id){
 UserHandler.rejectUserRequest = function(invite_id){
     var reject = $("[data-reject-request-id='"+invite_id+"']");
     reject.on("click", function(){
-        console.log("reject");
         $.ajax({
             type: "POST",
             url: "/projects/planner/resources/php/task_handlers/task_sharing_handler_two.php",
@@ -108,4 +107,18 @@ UserHandler.rejectUserRequest = function(invite_id){
 UserHandler.updateRequestsScope = function(){
     var scope = angular.element("#share_center_nav").scope();
     scope.updateRequestsScope();
+}
+
+UserHandler.attachRemoveFriendHandlers = function(friend_id){
+    var remove = $("[data-remove-friend-id='"+friend_id+"']");
+    $(remove).on("click", function(){
+        dhtmlx.confirm({
+            title:"Remove Friend",
+            ok:"Yes", cancel:"Cancel",
+            text:"Are you susre you want to permamently remove this friend?",
+            callback:function(result){
+                console.log("TODO : Update DB and remove friend.");
+            }
+        });
+    });
 }

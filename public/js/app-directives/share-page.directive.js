@@ -8,3 +8,14 @@ app.directive('friendRequestDirective',function($timeout){
         }
     } 
 });
+
+app.directive('friendRemoveDirective',function($timeout){
+    return{
+        restrict:'A',
+        link:function(scope,elem,attrs){
+            $timeout(function(){
+                UserHandler.attachRemoveFriendHandlers(scope.friend.id);
+            },0)
+        }
+    } 
+});

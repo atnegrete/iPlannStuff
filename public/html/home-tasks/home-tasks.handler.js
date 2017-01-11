@@ -90,8 +90,22 @@ if(verifySession()) {
     // Handle Delete Button for Tasks.
     $(".panel-group").on("click", 'input.task_delete_button', function(){
         // Open up Delete Confirmation.
-        var id = $(this).data("delete-id");
-        $("#delete_dialog"+id).dialog("open");
+        //var id = $(this).data("delete-id");
+        //$("#delete_dialog"+id).dialog("open");
+        var remove_id = $(this).data("delete-id");
+       // $(this).on("click", function(){
+            dhtmlx.confirm({
+                title:"Remove Task",
+                ok:"Yes", cancel:"Cancel",
+                text:"Are you susre you want to permamently remove this Task?",
+                callback:function(result){
+                    //console.log("TODO : Update DB and remove task." + remove_id);
+                    if(result){
+                        Task.deleteTask(remove_id);
+                    }
+                }
+            });
+        //});
     });
 
     // Handle Button for sharing tasks with friends.
@@ -129,7 +143,7 @@ if(verifySession()) {
 
     function newTaskCalendar() {
         myCalendar = new dhtmlXCalendarObject({input: "new_task_date", button: "calendar_icon"});
-        myCalendar.showToday();
+        //myCalendar.showToday();
         myCalendar.showTime();
         myCalendar.setDateFormat("%M %j @ %h:%i %A");
     }

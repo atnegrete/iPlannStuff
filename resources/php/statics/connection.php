@@ -1,12 +1,12 @@
 <?php
-$username = "chozenalan";
-$password = "#Tl,,.Q6srcZ";
-$dbServer = "107.180.47.59"; 
-$dbName   = "iplanstuff_tasks_db";
-// $username = "root";
-// $password = "";
-// $dbServer = "localhost";
-// $dbName = "iplanstuff_tasks_db";
+// $username = "chozenalan";
+// $password = "#Tl,,.Q6srcZ";
+// $dbServer = "107.180.47.59"; 
+// $dbName   = "iplanstuff_tasks_db";
+$username = "root";
+$password = "";
+$dbServer = "localhost";
+$dbName = "iplanstuff_tasks_db";
 
 
 function startConnection(){

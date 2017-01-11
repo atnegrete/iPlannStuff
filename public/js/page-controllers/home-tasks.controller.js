@@ -4,22 +4,24 @@
  */
 app.controller('homeTasksController', function ( $scope, $http, Scopes) {
 
-        var loadFriends = $http({
-                url: "/projects/planner/resources/php/init_handler/task_page_init_handler.php",
-                method: "POST",
-                data: JSON.stringify({
-                    functionname: "getUserFriends",
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .success(function(data, status, headers, config) {
-                $scope.friends = data.friends;
-                Scopes.store('homeTasksController', $scope);
-            })
-            .error(function(data, status, headers, config) {
-                alert("Friends Request failed");
+        var d = Scopes.getFriends();
+        d.then(function(friends) {
+            $scope.friends = friends;
+            console.log(friends);
+        }, function(reason) {
+            alert('Failed: ' + reason);
+        }, function(update) {
+            $scope.friends = update;
+            console.log(update);
+        });
+
+        var friendsRequestsPromise = Scopes.getFriendsRequests();
+        friendsRequestsPromise.then(function(requests) {
+            $scope.friendRequests = requests;
+        }, function(reason) {
+            alert('Failed: ' + reason);
+        }, function(update) {
+            $scope.friendRequests = update;
         });
 
         var loadCategories = $http({

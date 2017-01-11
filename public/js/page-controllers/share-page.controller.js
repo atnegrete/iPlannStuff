@@ -1,13 +1,14 @@
 app.controller('sharePageController', function ( $scope, $http, Scopes) {
    
-    $scope.init = function(){
-        //console.log("init");
-        $tasks_scope = Scopes.get("homeTasksController");
-        //console.log($tasks_scope.friends);
-        if($tasks_scope != undefined){
-            $scope.friends = $tasks_scope.friends;
-        }
-    }
+    
+    var friendsPromise = Scopes.getFriends();
+    friendsPromise.then(function(friends) {
+        $scope.friends = friends;
+    }, function(reason) {
+        alert('Failed: ' + reason);
+    }, function(update) {
+        $scope.friends = update;
+    });
 
     $scope.inviteFriendForm = function(isValid){
         if(isValid){
@@ -75,41 +76,14 @@ app.controller('sharePageController', function ( $scope, $http, Scopes) {
             });
     }
 
-    var getFriendRequests = $http({
-            url: "/projects/planner/resources/php/task_handlers/task_sharing_handler_one.php",
-            method: "POST",
-            data: JSON.stringify({
-                functionname: "getFriendRequests"
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            })
-            .success(function(data, status, headers, config) {
-                if(! ("error" in data)){
-                    if(data.result != null && data.result.length > 0){
-                        $scope.friendRequests = data.result;
-                    }
-                    if(data.result.length > 0) {
-
-                        $.bootstrapGrowl("You have " + data.result.length + " friend requests.",{
-                            type: 'success',
-                            delay: 2000,
-                            allow_dismiss: false,
-                        });
-                        var badge = '<span class="w3-badge w3-margin-left w3-green">'+data.result.length+'</span>';
-                        $("#share_tasks_navbar").append(badge);
-                    }
-                }else{
-                    $.bootstrapGrowl(data.error,{
-                        type: 'warning',
-                        delay: 2000,
-                        allow_dismiss: false,
-                    });
-                }
-            })
-            .error(function(data, status, headers, config) {
-                alert(success);
-            });
-
+    var friendsRequestsPromise = Scopes.getFriendsRequests();
+    friendsRequestsPromise.then(function(friends) {
+        $scope.friendRequests = friends;
+        console.log(friends);
+    }, function(reason) {
+        alert('Failed: ' + reason);
+    }, function(update) {
+        $scope.friendRequests = update;
+        console.log(update);
+    });
 });
