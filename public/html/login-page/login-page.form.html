@@ -1,6 +1,6 @@
 <div class="container-fluid center">
     <div id="logbox">
-        <form id="login" name="login">
+        <form id="login" name="login" login-page-directive>
             <h2 align="center" >account login</h2>
             <input name="user" type="text" placeholder="enter your username" class="input pass" readonly 
                 onfocus="this.removeAttribute('readonly');"/>
@@ -18,10 +18,10 @@
 
 <!--Login Page handler-->
 <script>
-    $.getScript("../js/page-handlers/login-page.handler.js", function( data, textStatus, jqxhr ) {
-        //console.log( data ); // Data returned
-        //console.log( textStatus ); // Success
-        //console.log( jqxhr.status ); // 200
-        //console.log( "Load was performed." );
-    });
+    // $.getScript("../js/page-handlers/login-page.handler.js", function( data, textStatus, jqxhr ) {
+    //     //console.log( data ); // Data returned
+    //     //console.log( textStatus ); // Success
+    //     //console.log( jqxhr.status ); // 200
+    //     //console.log( "Load was performed." );
+    // });
 </script>

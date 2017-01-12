@@ -5,6 +5,7 @@ app.directive('taskDirective',function($timeout){
             $timeout(function(){
                 Task.setCalendar(scope.task.task_id, scope.task.due_date);
                 Task.addDeleteTaskDialog(scope.task.task_id);
+                Task.addEventHandlers(scope.task.task_id);
             },0)
         }
     } 

@@ -49,54 +49,54 @@ $(document).ready(function(){
     });
 
 
-    // Handle CheckBox for Tasks.
-    $(".panel-group").on("click", 'input.task_check_box', function(){
-        // Change data-active
-        if($(this).data("task-active") == 1){
-            Task.completeTask($(this));
-        }else{
-            Task.uncompleteTask($(this));
-        }
-    });
+    // // Handle CheckBox for Tasks.
+    // $(".panel-group").on("click", 'input.task_check_box', function(){
+    //     // Change data-active
+    //     if($(this).data("task-active") == 1){
+    //         Task.completeTask($(this));
+    //     }else{
+    //         Task.uncompleteTask($(this));
+    //     }
+    // });
 
     // Handle Delete Button for Tasks.
-    $(".panel-group").on("click", 'input.task_delete_button', function(){
-        // Open up Delete Confirmation.
-        //var id = $(this).data("delete-id");
-        //$("#delete_dialog"+id).dialog("open");
-        var remove_id = $(this).data("delete-id");
-    // $(this).on("click", function(){
-            dhtmlx.confirm({
-                title:"Remove Task",
-                ok:"Yes", cancel:"Cancel",
-                text:"Are you susre you want to permamently remove this Task?",
-                callback:function(result){
-                    //console.log("TODO : Update DB and remove task." + remove_id);
-                    if(result){
-                        Task.deleteTask(remove_id);
-                    }
-                }
-            });
-        //});
-    });
+    // $(".panel-group").on("click", 'input.task_delete_button', function(){
+    //     // Open up Delete Confirmation.
+    //     //var id = $(this).data("delete-id");
+    //     //$("#delete_dialog"+id).dialog("open");
+    //     var remove_id = $(this).data("delete-id");
+    // // $(this).on("click", function(){
+    //         dhtmlx.confirm({
+    //             title:"Remove Task",
+    //             ok:"Yes", cancel:"Cancel",
+    //             text:"Are you susre you want to permamently remove this Task?",
+    //             callback:function(result){
+    //                 //console.log("TODO : Update DB and remove task." + remove_id);
+    //                 if(result){
+    //                     Task.deleteTask(remove_id);
+    //                 }
+    //             }
+    //         });
+    //     //});
+    // });
 
-    // Handle Button for sharing tasks with friends.
-    $(".panel-group").on("click", 'button.friend_button', function(element){
-        var selected = $(this).data("friend-selected");
-        // Check if the friend is already added.
-        if(selected == 1){
-            $(this).data("friend-selected",0);
-            $(this).css('background-image','url(../../resources/images/ic_check_box_outline_blank_white_24dp_1x.png)');
-            console.log("remove");
-            Task.removeFriendShareTask($(this).data("share-task-id"), $(this).data("friend-id"));
-        }else{
-            $(this).data("friend-selected",1);
-            $(this).css('background-image','url(../../resources/images/ic_check_circle_black_24dp_1x.png)');
-            console.log("select");
-            Task.addFriendShareTask($(this).data("share-task-id"), $(this).data("friend-id"));
-        }
+    // // Handle Button for sharing tasks with friends.
+    // $(".panel-group").on("click", 'button.friend_button', function(element){
+    //     var selected = $(this).data("friend-selected");
+    //     // Check if the friend is already added.
+    //     if(selected == 1){
+    //         $(this).data("friend-selected",0);
+    //         $(this).css('background-image','url(../../resources/images/ic_check_box_outline_blank_white_24dp_1x.png)');
+    //         console.log("remove");
+    //         Task.removeFriendShareTask($(this).data("share-task-id"), $(this).data("friend-id"));
+    //     }else{
+    //         $(this).data("friend-selected",1);
+    //         $(this).css('background-image','url(../../resources/images/ic_check_circle_black_24dp_1x.png)');
+    //         console.log("select");
+    //         Task.addFriendShareTask($(this).data("share-task-id"), $(this).data("friend-id"));
+    //     }
 
-    });
+    // });
 
     // Handle Clicks on Task item and pull up update box.
     $(".panel-group").on("click", 'li.task_item', function(element){

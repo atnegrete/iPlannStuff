@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#login").validate({
         submitHandler : function(form) {
+            console.log(form);
             loginForm();
         }
     });
