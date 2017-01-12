@@ -293,29 +293,7 @@ Task.deleteTask = function(task_id){
     });
 }
 
-Task.addDeleteTaskDialog = function(task_id){
-    // if(!($("#delete_dialog"+task_id).length)){
-    //     var dialog_string = '<div class="task_delete_dialog" id="delete_dialog'+task_id+'" data-delete-id="'+task_id+'" title="Delete Task">Are you sure you want to permanently delete this task?</div>';
-    //     $("[data-delete-id='"+task_id+"']").append(dialog_string);
-    //     // $("[data-delete-id='"+task_id+"']").append(dialog_string);
-    //     $("#delete_dialog"+task_id).dialog({
-    //         autoOpen: false,
-    //         resizable: false,
-    //         modal: true,
-    //         buttons: {
-    //             "Delete Task" : function(){
-    //                 $(this).dialog("close");
-    //                 Task.deleteTask($(this).data("delete-id"));
-    //             },
-    //             Cancel : function(){
-    //                 $(this).dialog("close");
-    //             }
-    //         }
-    //     });
-    // }
-}
-
-Task.handleTaskSharingFriends = function(scope,all_friends, already_shared_friends, scope_task, scope_friend){
+Task.handleTaskSharingFriends = function(already_shared_friends){
     if($.isArray(already_shared_friends)){
         for(var i = 0; i < already_shared_friends.length; i++){
             var shared_friend = already_shared_friends[i];
@@ -420,9 +398,9 @@ Task.addEventHandlers = function(task_id){
     });
 }
 
-Task.addFriendClickedToShareEventHandlers = function(task_id, friend_id){
+Task.addFriendClickedToShareEventHandlers = function(friend_id){
     // Handle Button for sharing tasks with friends.
-    $( "button[data-friend-id='"+task_id+"']").on("click", function(element){
+    $("button[data-friend-id='"+friend_id+"']").on("click", function(element){
         var selected = $(this).data("friend-selected");
         // Check if the friend is already added.
         if(selected == 1){

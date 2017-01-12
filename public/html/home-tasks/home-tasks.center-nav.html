@@ -59,8 +59,8 @@
                         <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
                             <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
                                 <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
-                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
-                                    <button class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0">
+                                    <button share-task-directive class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
                                 </div>
                             </div>
                         <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">
@@ -97,8 +97,8 @@
                         <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
                             <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
                                 <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
-                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
-                                    <button class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0">
+                                    <button share-task-directive class="list-group-item from-control friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
                                 </div>
                             </div>
                         <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">    
@@ -135,8 +135,8 @@
                         <input type="image" data-toggle="collapse" data-target="#sharewell{{task.task_id}}"  class="task_share_button" src="../../resources/images/ic_share_black_24dp_1x.png" data-share-task-id="{{task.task_id}}">
                             <div class="well collapse friends_well" id="sharewell{{task.task_id}}" style="position: absolute; height: 200px; width: 100%;">
                                 <input type="text" class="form-control" placeholder="enter friend names" ng-model="searchKeyword">
-                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0" share-task-directive>
-                                    <button class="list-group-item friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}"data-friend-selected="0">{{friend.name}}</button>
+                                <div ng-repeat="friend in friends | filter: searchKeyword" ng-if="searchKeyword.length > 0">
+                                    <button share-task-directive class="list-group-item friend_button not_shared_friend"  data-friend-id="{{friend.id}}" data-share-task-id="{{task.task_id}}" data-friend-selected="0">{{friend.name}}</button>
                                 </div>
                             </div>
                         <input type="image" class="task_delete_button" src="../../resources/images/ic_delete_forever_black_24dp_1x.png" data-delete-id="{{task.task_id}}">
