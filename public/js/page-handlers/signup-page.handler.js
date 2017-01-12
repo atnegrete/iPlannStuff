@@ -1,14 +1,12 @@
-$(document).ready(function() {
 
-    clearSignUpForm();
+clearSignUpForm();
 
-    $("form[name='signup']").validate({
-        submitHandler : function(form) {
-            if(checkForm()){
-                submitForm();
-            }
+$("form[name='signup']").validate({
+    submitHandler : function(form) {
+        if(checkForm()){
+            submitForm();
         }
-    });
+    }
 });
 
 function checkForm(){

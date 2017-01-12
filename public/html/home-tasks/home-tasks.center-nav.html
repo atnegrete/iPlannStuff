@@ -2,7 +2,7 @@
 <h1>Tasks</h1>
 
 <button data-toggle="collapse" data-target="#new_task_well" id="new_task_btn">New Task</button>
-<div class="well collapse" id="new_task_well" style="position:relative;height:350px;">
+<div class="well collapse" id="new_task_well" style="position:relative;height:350px;" task-create-directive>
 
     <input class="input" id="new_task_name" type="text" placeholder="enter task name">
 
@@ -152,10 +152,9 @@
 
 </div>
 
-<!--Task Event Handlers-->
+<!--Task Event Handlers
 <script>
-    verifySession();
     $.getScript( "home-tasks/home-tasks.handler.js", function( data, textStatus, jqxhr ) {
         
     });
-</script>
+</script>-->

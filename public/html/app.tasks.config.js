@@ -14,13 +14,135 @@ var app = angular.module('tasksApp', [
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     // Home
-    .when("/home", {templateUrl: "home-tasks/home-tasks.template.html", controller: "homeTasksController"})
-    .when("/share", {templateUrl: "home-share/home-share.template.html", controller: "sharePageController"})
-    .when("/welcome", {templateUrl: "welcome-page/welcome-page.template.html"})
-    .when("/signup", {templateUrl: "signup-page/signup-page.template.html",  controller: "signupPageController"})
-    .when("/login", {templateUrl: "login-page/login-page.template.html", controller: "loginPageController"})
-    .when("/logout", {controller:"logoutController"})
-    .when("/planner", {templateUrl: "home-planner/home-planner.template.html"})
+    .when("/home", {
+        templateUrl: "home-tasks/home-tasks.template.html", 
+        controller: "homeTasksController",
+        resolve: {
+            "check" : function($location){
+                verifySession().done(function(result){
+                    if(result){
+                        $location.path('/home');
+                        console.log("session verified");
+                        remove_overlay();
+                    }else{
+                        $location.path('/login');
+                        console.log("session not verified");
+                        remove_overlay();
+                        $.bootstrapGrowl("Please Login.",{
+                            type: 'info',
+                            delay: 3000,
+                            allow_dismiss: false,
+                        });
+                    }
+                });
+            }
+        }
+    })
+    .when("/share", {
+        templateUrl: "home-share/home-share.template.html",
+        controller: "sharePageController",
+        resolve: {
+            "check" : function($location){
+                verifySession().done(function(result){
+                    if(result){
+                        $location.path('/share');
+                        console.log("session verified");
+                        remove_overlay();
+                    }else{
+                        $location.path('/login');
+                        console.log("session not verified");
+                        remove_overlay();
+                        $.bootstrapGrowl("Please Login.",{
+                            type: 'info',
+                            delay: 3000,
+                            allow_dismiss: false,
+                        });
+                    }
+                });
+            }
+        }
+    })
+    .when("/welcome", {
+        templateUrl: "welcome-page/welcome-page.template.html"
+    })
+    .when("/signup", {
+        templateUrl: "signup-page/signup-page.template.html",
+    })
+    .when("/login", {
+        templateUrl: "login-page/login-page.template.html",
+    })
+    .when("/logout", {
+        controller:"logoutController"
+    })
+    .when("/planner", {
+        templateUrl: "home-planner/home-planner.template.html",
+        resolve: {
+            "check" : function($location){
+                verifySession().done(function(result){
+                    if(result){
+                        $location.path('/planner');
+                        console.log("session verified");
+                        remove_overlay();
+                    }else{
+                        $location.path('/login');
+                        console.log("session not verified");
+                        remove_overlay();
+                        $.bootstrapGrowl("Please Login.",{
+                            type: 'info',
+                            delay: 3000,
+                            allow_dismiss: false,
+                        });
+                    }
+                });
+            }
+        }
+    })
+    .when("/contact", {
+        templateUrl: "home-planner/home-planner.template.html",
+        resolve: {
+            "check" : function($location){
+                verifySession().done(function(result){
+                    if(result){
+                        $location.path('/planner');
+                        console.log("session verified");
+                        remove_overlay();
+                    }else{
+                        $location.path('/login');
+                        console.log("session not verified");
+                        remove_overlay();
+                        $.bootstrapGrowl("Please Login.",{
+                            type: 'info',
+                            delay: 3000,
+                            allow_dismiss: false,
+                        });
+                    }
+                });
+            }
+        }
+    })
+    .when("/settings", {
+        templateUrl: "home-planner/home-planner.template.html",
+        resolve: {
+            "check" : function($location){
+                verifySession().done(function(result){
+                    if(result){
+                        $location.path('/planner');
+                        console.log("session verified");
+                        remove_overlay();
+                    }else{
+                        $location.path('/login');
+                        console.log("session not verified");
+                        remove_overlay();
+                        $.bootstrapGrowl("Please Login.",{
+                            type: 'info',
+                            delay: 3000,
+                            allow_dismiss: false,
+                        });
+                    }
+                });
+            }
+        }
+    })
     .otherwise({redirectTo: 'home'});
 }]);
 

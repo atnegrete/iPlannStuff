@@ -1,10 +1,8 @@
-$(document).ready(function(){
-    $("#login").validate({
-        submitHandler : function(form) {
-            console.log(form);
-            loginForm();
-        }
-    });
+$("#login").validate({
+    submitHandler : function(form) {
+        console.log(form);
+        loginForm();
+    }
 });
 
 function loginForm(){

@@ -6,10 +6,10 @@ var reminder = function(i1, s1) {
 
 var newTaskCalendar;
 function doOnLoad(){
-    newTaskCalendar();
+    createNewTaskCalendar();
 }
 
-function newTaskCalendar() {
+function createNewTaskCalendar() {
     newTaskCalendar = new dhtmlXCalendarObject({input: "new_task_date", button: "calendar_icon"});
     //myCalendar.showToday();
     newTaskCalendar.showTime();
