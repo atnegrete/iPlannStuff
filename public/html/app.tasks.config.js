@@ -1,3 +1,6 @@
+
+"use strict"; 
+
 /**
  * Main AngularJS Web Application
  */

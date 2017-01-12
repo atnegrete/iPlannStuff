@@ -23,8 +23,8 @@ function verifySession(){
                 //console.log("Session verified.");
                 succeed = true;
             }else{
-                window.location.href = ("#/login");
-                location.reload();
+               // window.location.href = ("#/login");
+                //location.reload();
                 succeed = false;
             }
         }
