@@ -26,18 +26,7 @@
     <h2 align="center" class="">your friends :)</h2>
     <div class="" ng-repeat="friend in friends" friend-remove-directive> 
         <input type="text" class="share-tasks-friend-name" value="{{friend.name}}" readonly/>
-        <input type="button" class="share-tasks-friend-remove" value="Remove" data-remove-friend-id="{{friend.id}}"/>
+        <input type="button" class="share-tasks-friend-remove" value="Remove" data-remove-friendship-id="{{friend.friendship_id}}"/>
     </div>
 </div>
 
-
-
-<!--Share-Page handler-->
-<script>
-    $.getScript( "../js/page-handlers/share-page.handler.js", function( data, textStatus, jqxhr ) {
-        //console.log( data ); // Data returned
-        //console.log( textStatus ); // Success
-        //console.log( jqxhr.status ); // 200
-        //console.log( "Load was performed." );
-    });
-</script>

@@ -129,6 +129,7 @@ function getUserFriends(){
                     $friend = new stdClass();
                     $friend->name = $name->user_name;
                     $friend->id = $f->user_two_id;
+                    $friend->friendship_id = $f->friendship_id;
                     array_push($retVal["friends"], $friend);
                 }else{
                     $retVal["error"] = "Error - Could not find friend.";
@@ -139,6 +140,7 @@ function getUserFriends(){
                     $friend = new stdClass();
                     $friend->name = $name->user_name;
                     $friend->id = $f->user_one_id;
+                    $friend->friendship_id = $f->friendship_id;
                     array_push($retVal["friends"], $friend);
                 }else{
                     $retVal["error"] = "Error - Could not find friend.";

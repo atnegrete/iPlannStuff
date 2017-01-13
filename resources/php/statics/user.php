@@ -242,6 +242,25 @@
                 return $error;
             }
         }
+
+        public static function removeFriendship($friendship_id){
+            global $conn;
+            $statement = $conn->stmt_init();
+            if($statement->prepare("DELETE FROM friend WHERE friendship_id = ?")){
+                $statement->bind_param("i", $friendship_id);
+                if(!$statement->execute()){
+                    $error =  "Execute failed -removeFriendship-: (" . $statement->errno.")".$statement->error;
+                    echo $error;
+                    return false;
+                }else{
+                    return true;
+                }  
+            }else{
+                $error =  "Prepare failed -removeFriendship-: (" . $statement->errno.")".$statement->error;
+                echo $error;
+                return false;
+            }
+        }
         
     }
 ?>

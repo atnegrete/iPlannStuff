@@ -25,6 +25,9 @@ if( !isset($_SESSION["id"]) || !isset($_POST["functionname"]) ){
         case "addFriendShareTask":
             addFriendShareTask($_POST["task_id"], $_POST["friend_id"]);
             break;
+        case "removeFriendship":
+            removeFriendship($_POST["friendship_id"]);
+            break;
         default:
             $retVal["error"] = "'functionname' not found.";
             break;
@@ -60,7 +63,6 @@ function rejectUserRequest($invite_id){
 
 function addFriendShareTask($task_id, $friend_id){
     global $retVal;
-    //var_dump($task_id,$friend_id);
     if(Task::addFriendShareTask($task_id, $_SESSION["id"], $friend_id)){
         $retVal["result"] = "Friend has been added to task.";
     }else{
@@ -70,11 +72,19 @@ function addFriendShareTask($task_id, $friend_id){
 
 function removeFriendShareTask($task_id, $friend_id){
     global $retVal;
-    //var_dump($task_id,$friend_id);
     if(Task::removeFriendShareTask($task_id, $_SESSION["id"], $friend_id)){
         $retVal["result"] = "Friend has been removed from task.";
     }else{
         $retVal["error"] = "There was a problem removing your friend from the task. Please try again later.";
+    }
+}
+
+function removeFriendship($friendship_id){
+    global $retVal;
+    if(User::removeFriendship($friendship_id)){
+        $retVal["result"] = "Friend has been removed.";
+    }else{
+        $retVal["error"] = "There was a problem removing your friend. Please try again later.";
     }
 }
 

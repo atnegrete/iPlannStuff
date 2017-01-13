@@ -58,7 +58,7 @@ app.directive('taskCreateDirective',function($timeout){
                     // Handle Clicks on Task item and pull up update box.
                     $(".panel-group").on("click", 'li.task_item', function(element){
                         var target = event.target;
-                        console.log(target)
+                        //console.log(target)
                         if($(target).attr("class") == "task_name" || $(target).attr("class") == "task_calendar" 
                                             || $(target).attr("class") == "task_reminders_button"){
                             console.log("add div");

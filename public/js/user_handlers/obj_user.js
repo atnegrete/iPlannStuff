@@ -59,7 +59,7 @@ UserHandler.acceptUserRequest = function(invite_id){
                         allow_dismiss: false,
                     });
                     // Update scope for requests.
-                    UserHandler.updateRequestsScope();
+                    UserHandler.fullSharePageUpdate();
                 }else{
                     $.bootstrapGrowl(data.error,{
                         type: 'danger',
@@ -91,7 +91,7 @@ UserHandler.rejectUserRequest = function(invite_id){
                         allow_dismiss: false,
                     });
                     // Update scope for requests.
-                    UserHandler.updateRequestsScope();
+                    UserHandler.fullSharePageUpdate();
                 }else{
                     $.bootstrapGrowl(data.error,{
                         type: 'danger',
@@ -104,20 +104,46 @@ UserHandler.rejectUserRequest = function(invite_id){
     });
 }
 
-UserHandler.updateRequestsScope = function(){
+UserHandler.fullSharePageUpdate = function(){
     var scope = angular.element("#share_center_nav").scope();
-    scope.updateRequestsScope();
+    scope.update(true);
 }
 
-UserHandler.attachRemoveFriendHandlers = function(friend_id){
-    var remove = $("[data-remove-friend-id='"+friend_id+"']");
+UserHandler.attachRemoveFriendHandlers = function(friendship_id){
+    var remove = $("[data-remove-friendship-id='"+friendship_id+"']");
     $(remove).on("click", function(){
         dhtmlx.confirm({
             title:"Remove Friend",
             ok:"Yes", cancel:"Cancel",
             text:"Are you susre you want to permamently remove this friend?",
             callback:function(result){
-                console.log("TODO : Update DB and remove friend.");
+                if(result) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/projects/planner/resources/php/task_handlers/task_sharing_handler_two.php",
+                        data: {
+                            functionname : "removeFriendship",
+                            friendship_id : friendship_id
+                        },
+                        dataType: "json",
+                        success: function(data){
+                            if(!('error' in data) ){
+                                UserHandler.fullSharePageUpdate();
+                                $.bootstrapGrowl(data.result,{
+                                    type: 'warning',
+                                    delay: 3000,
+                                    allow_dismiss: false,
+                                });
+                            }else{
+                                $.bootstrapGrowl(data.error,{
+                                    type: 'danger',
+                                    delay: 3000,
+                                    allow_dismiss: false,
+                                });          
+                            }
+                        }
+                    });
+                }
             }
         });
     });

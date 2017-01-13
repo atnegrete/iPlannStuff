@@ -1,14 +1,40 @@
-app.controller('sharePageController', function ( $scope, $http, Scopes) {
-   
-    
-    var friendsPromise = Scopes.getFriends();
-    friendsPromise.then(function(friends) {
-        $scope.friends = friends;
-    }, function(reason) {
-        alert('Failed: ' + reason);
-    }, function(update) {
-        $scope.friends = update;
-    });
+app.controller('sharePageController', function ( $scope, $http, Scopes, $timeout, $location) {
+
+    var poll_interval = 100;
+
+    $scope.update = poll;
+
+    // Execute polling loop.
+    poll(false);
+
+    function poll(update){
+        if($location.$$path == "/share"){
+            console.log($location.$$path + " polling @ " + poll_interval);
+            var friendsPromise = Scopes.getFriends();
+            friendsPromise.then(function(friends) {
+                $scope.friends = friends;
+            }, function(reason) {
+                alert('Failed: ' + reason);
+            }, function(update) {
+                $scope.friends = update;
+            });
+
+            var friendsRequestsPromise = Scopes.getFriendsRequests();
+            friendsRequestsPromise.then(function(friends) {
+                $scope.friendRequests = friends;
+                //console.log(friends);
+            }, function(reason) {
+                alert('Failed: ' + reason);
+            }, function(update) {
+                $scope.friendRequests = update;
+                console.log(update);
+            });
+        }
+        if(!update){
+            poll_interval = 5000;
+            $timeout(poll, poll_interval); 
+        }
+    };
 
     $scope.inviteFriendForm = function(isValid){
         if(isValid){
@@ -45,45 +71,4 @@ app.controller('sharePageController', function ( $scope, $http, Scopes) {
             });
         }
     }
-
-    $scope.updateRequestsScope = function(){
-        var updateRequests = $http({
-            url: "/projects/planner/resources/php/task_handlers/task_sharing_handler_one.php",
-            method: "POST",
-            data: JSON.stringify({
-                functionname: "getFriendRequests"
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            })
-            .success(function(data, status, headers, config) {
-                if(! ("error" in data)){
-                    if(data.result != null){
-                        $scope.friendRequests = data.result;
-                        console.log("updated");
-                    }
-                }else{
-                    $.bootstrapGrowl(data.error,{
-                        type: 'danger',
-                        delay: 3000,
-                        allow_dismiss: false,
-                    });
-                }
-            })
-            .error(function(data, status, headers, config) {
-                alert(success);
-            });
-    }
-
-    var friendsRequestsPromise = Scopes.getFriendsRequests();
-    friendsRequestsPromise.then(function(friends) {
-        $scope.friendRequests = friends;
-        console.log(friends);
-    }, function(reason) {
-        alert('Failed: ' + reason);
-    }, function(update) {
-        $scope.friendRequests = update;
-        console.log(update);
-    });
 });

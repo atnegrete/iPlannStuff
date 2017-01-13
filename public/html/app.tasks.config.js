@@ -147,7 +147,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.factory('Scopes', function ($rootScope, $q, $http) {
+app.factory('Scopes', function ($rootScope, $q, $http, $interval){
     var mem = {};
 
     var loadFriends = function(){
@@ -185,17 +185,14 @@ app.factory('Scopes', function ($rootScope, $q, $http) {
         })
         .success(function(data, status, headers, config) {
             if(!("error" in data)){
-                if(data.result.length > 0){
-                    friendsRequestsPromise.resolve(data.result);                    
-                }
+                friendsRequestsPromise.resolve(data.result);                    
                 if(data.result.length > 0) {
-                    $.bootstrapGrowl("You have " + data.result.length + " friend request/s.",{
-                        type: 'success',
-                        delay: 1000,
-                        allow_dismiss: false,
-                    });
-                    var badge = '<span class="w3-badge w3-margin-left w3-green">'+data.result.length+'</span>';
-                    $("#share_tasks_navbar").append(badge);
+                    if($("#requests_badge").length == 0){
+                        var badge = '<span class="w3-badge w3-margin-left w3-green" id="requests_badge">'+data.result.length+'</span>';
+                        $("#share_tasks_navbar").append(badge);
+                    }
+                }else{
+                    $("#requests_badge").remove();
                 }
             }else{
                 console.log(data.error);
@@ -206,10 +203,32 @@ app.factory('Scopes', function ($rootScope, $q, $http) {
         });
         return friendsRequestsPromise.promise;
     }
+
+    var loadCategories = function(){
+        var categoriesPromise = $q.defer();
+        $http({
+                url: "/projects/planner/resources/php/init_handler/task_page_init_handler.php",
+                method: "POST",
+                data: JSON.stringify({
+                    functionname: "getUserCategories",
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .success(function(data, status, headers, config) {
+                categoriesPromise.resolve(data.category_ids);
+            })
+            .error(function(data, status, headers, config) {
+                alert("Categories Request failed");
+        });
+        return categoriesPromise.promise;
+    }
  
     return {
         getFriendsRequests : loadFriendRequests,
         getFriends : loadFriends,
+        getCategories : loadCategories,
         store: function (key, value) {
             mem[key] = value;
         },

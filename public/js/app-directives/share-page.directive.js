@@ -14,8 +14,9 @@ app.directive('friendRemoveDirective',function($timeout){
         restrict:'A',
         link:function(scope,elem,attrs){
             $timeout(function(){
-                UserHandler.attachRemoveFriendHandlers(scope.friend.id);
+                UserHandler.attachRemoveFriendHandlers(scope.friend.friendship_id);
             },0)
         }
     } 
 });
+
