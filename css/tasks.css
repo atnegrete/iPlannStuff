@@ -1,0 +1,387 @@
+
+/*Setting background to green*/
+/*body {
+    background: #5EDE24;
+}*/
+
+#loader-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
+}
+
+.container-fluid {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-width: 440px;
+}
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and(max-width: 767 px) {
+    .sidenav {
+        height: auto;
+        padding: 15 px;
+    }
+    .row.content {
+        height: auto;
+    }
+}
+
+.panel-body {
+    width: 100%;
+    min-width: 360px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#new_task_btn {
+    font-family: Arial;
+    color: #5EDE24;
+    font-size: 20px;
+    background: transparent;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid #5EDE24 2px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+#new_task_btn:hover {
+  background: #5EDE24;
+  color: white;
+  text-decoration: none;
+}
+
+#columns {
+    width: 50%; 
+}
+
+#add_new_task_btn {
+  /*-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  text-shadow: 1px 1px 3px #949494;
+  -webkit-box-shadow: 3px 3px 8px #666666;
+  -moz-box-shadow: 3px 3px 8px #666666;
+  box-shadow: 3px 3px 8px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #5EDE24;
+  padding: 10px 20px 10px 20px;
+  border: solid #e8e8e8 0px;
+  text-decoration: none;*/
+    font-family: Arial;
+    color: #5EDE24;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid #5EDE24 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 40%;
+    margin-left: 13%;
+}
+
+#add_new_task_btn:hover {
+  background: #5EDE24;
+  color: white;
+  text-decoration: none;
+}
+
+#cancel_new_task_btn {
+  /*-webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  -webkit-box-shadow: 3px 3px 8px #666666;
+  -moz-box-shadow: 3px 3px 8px #666666;
+  box-shadow: 3px 3px 8px #666666;
+  font-family: Arial;
+  color: #878787;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #e8e8e8 0px;
+  text-decoration: none;*/
+    width: 35%;
+    margin-right: 10%;
+    font-family: Arial;
+    color: grey;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+#cancel_new_task_btn:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
+}
+
+.input {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.input {
+  background-color: white;
+  width: 60%;
+  height: 50px;
+  display: block;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+  margin: 5px;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: #5EDE24 !important;
+}
+.input:hover {
+  border-bottom-color: #dcdcdc;
+}
+.input:invalid {
+  box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+/*Calendar Image*/
+.date_input[type='text'] {
+    background-image: url(../../planner/resources/images/calendar.png);
+    background-position: 90% 15px;
+    background-repeat: no-repeat;
+}
+
+/*Adding Reminder CSS*/
+.input_n[type=number] {
+    width: 15%;
+}
+
+.select_n {
+    width: 23%;
+    border: none;
+}
+
+.new_task_reminders_div {
+  width: 75%;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+}
+.new_task_reminders_div:focus {
+  outline: none;
+  border-bottom-color: #5EDE24 !important;
+}
+.new_task_reminders_div:hover {
+  border-bottom-color: #dcdcdc;
+}
+.new_task_reminders_div:invalid {
+  box-shadow: none;
+}
+
+
+
+/* Pluss Sign for adding a Reminder*/
+#new_task_add_reminder {
+    position: relative;
+    top: 10px;
+    width: 6%;
+    background-color: transparent;
+    border: none;
+    font: bold;
+    font-size: 25px;
+}
+#new_task_add_reminder:active{
+    width: 6%;
+    background-color: transparent;
+    border: none;
+    font: bold;
+    font-size: 25px;
+}
+
+/*Reminders List*/
+#new_task_reminders_ul {
+    list-style-type: none;
+    background-color: white;
+    width: 100%;
+    display: block;
+    padding: 0 15px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    margin: 5px;
+}
+
+/*Actual Task List Item*/
+.task_li {
+    position: relative;
+    left: -40px;
+    width: 100%;
+    height: 40px;
+    background:white;
+}
+
+.placeholder {
+    position: relative;
+    background: #5EDE24;
+    visibility: visible;
+    height: 40px;
+    width: 100%;
+    left: -40px;
+    opacity: .2;
+}
+
+
+.task_check_box {
+    position: relative;
+    top: 20%;
+    outline: none;
+}
+
+.task_name {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    width: 35%;
+}
+
+.task_name:active {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+}
+
+.task_calendar {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    background-image: url(../../planner/resources/images/calendar.png);
+    background-position: 99% 2px;
+    background-repeat: no-repeat;
+    width: 37%;
+}
+
+
+.task_reminders_button {
+    position:relative;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    top: 1px;
+}
+
+.task_share_button {
+    position: relative;
+    background-color: transparent;
+    top:20%;
+    border: transparent;
+    outline: none;
+}
+
+.task_delete_button {
+    position: relative;
+    top: 20%;
+    outline: none;
+}
+
+.friend_button {
+    background-position: 90% 3px;
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border: 2px solid #5EDE24 !important;
+}
+
+.friend_button:hover {
+    border: 2px solid white !important;
+    color: white !important;
+    background-color: #5EDE24 !important;
+    outline: none !important;
+}
+
+.friend_button:active {
+    outline: none !important;
+
+}
+
+.friends_well {
+    z-index: 10;
+}
+
+.task_update_div {
+    width: 100%;
+    height: 50px;
+
+}
+
+.task_update_button {
+    font-family: Arial;
+    color: #5EDE24;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid #5EDE24 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 25%;
+    margin-left: 0px;
+}
+
+.task_update_button:hover {
+  background:#5EDE24;
+  color: white;
+  text-decoration: none;
+}
+
+.task_cancel_update_button {
+    font-family: Arial;
+    color: grey;
+    font-size: 20px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 25%;
+    margin-right: 0px;
+}
+
+.task_cancel_update_button:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
+}

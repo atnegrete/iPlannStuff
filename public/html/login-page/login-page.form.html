@@ -1,0 +1,27 @@
+<div class="container-fluid center">
+    <div id="logbox">
+        <form id="login" name="login" login-page-directive>
+            <h2 align="center" >account login</h2>
+            <input name="user" type="text" placeholder="enter your username" class="input pass" readonly 
+                onfocus="this.removeAttribute('readonly');"/>
+            <input name="password" type="password" placeholder="enter your password" required="required" class="input pass" readonly 
+                onfocus="this.removeAttribute('readonly');"/>
+            <input type="submit" value="Sign me in!" class="inputButton" />
+            <div class="text-center">
+                <a href="#" id="">forgot password</a>
+                <br>
+                <a href="#signup" id="">create a new account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Login Page handler-->
+<script>
+    // $.getScript("../js/page-handlers/login-page.handler.js", function( data, textStatus, jqxhr ) {
+    //     //console.log( data ); // Data returned
+    //     //console.log( textStatus ); // Success
+    //     //console.log( jqxhr.status ); // 200
+    //     //console.log( "Load was performed." );
+    // });
+</script>

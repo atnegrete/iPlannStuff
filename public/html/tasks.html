@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>iPlanStuff</title>
+    <meta charset="UTF-8">
+    <!--Required Start-->
+    <meta name="viewport" content="width=device-width, initial-scale=.65, maximum-scale=1.0, user-scalable=no" />
+
+        <!--JQuery Start-->
+        <script src="/projects/jquery-ui-1.12.1.custom/jquery-3.1.1.js" type="text/javascript"></script>
+        <script src="/projects/jquery-ui-1.12.1.custom/jquery-ui.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="/projects/jquery-ui-1.12.1.custom/jquery-ui.css" type="text/css">
+        
+        <!--<link rel="stylesheet" href="/projects/jquery-ui-1.12.1.custom/jquery-ui.structure.css" type="text/css">
+        <link rel="stylesheet" href="/projects/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" type="text/css">-->
+        <!--Jquery End-->
+
+        <link rel="shortcut icon" href="../../resources/images/favicon/favison16x.png"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/fonts/font_roboto/roboto.css"/>
+        <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.css"/>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+        <script src="/projects/planner/resources/dhtmlxCalendar_v50_std/codebase/dhtmlxcalendar.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxSuite_v50_std/codebase/fonts/font_roboto/roboto.css"/>
+        <link rel="stylesheet" type="text/css" href="/projects/planner/resources/dhtmlxSuite_v50_std/codebase/dhtmlx.css"/>
+        <script src="/projects/planner/resources/dhtmlxSuite_v50_std/codebase/dhtmlx.js"></script>
+    <!--Required End-->
+
+    <!--My CSS Files Start-->
+    <link rel="stylesheet" href="/projects/planner/css/tasks.css" type="text/css">
+    <link rel="stylesheet" href="/projects/planner/css/tasks_navbar.css" type="text/css">
+    <link rel="stylesheet" href="/projects/planner/css/signup.css" type="text/css">
+    <link rel="stylesheet" href="/projects/planner/css/share-page.css" type="text/css">
+    <!--My CSS Files End-->
+
+
+</head>
+
+<body ng-app="tasksApp">
+    
+    <!--Library Files-->
+    <script src="../js/lib/verifySession.js"></script>
+    <script src="../js/lib/globals.js"></script>
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+
+    <!--Page Routing-->
+    <script src="app.tasks.config.js"></script>
+
+    <!--Controllers-->
+    <script src="../js/page-controllers/home-tasks.controller.js"></script>
+    <script src="../js/page-controllers/share-page.controller.js"></script>
+    <script src="../js/page-controllers/logout.controller.js"></script>
+
+    <!--Directives-->
+    <script src="../js/app-directives/app.tasks.directive.js"></script>
+    <script src="../js/app-directives/share-page.directive.js"></script>
+    <script src="../js/app-directives/share-task.directive.js"></script>
+    <script src="../js/app-directives/login-page.directive.js"></script>
+    <script src="../js/app-directives/sign-up.directive.js"></script>
+    <script src="../js/app-directives/task-create.directive.js"></script>
+
+
+    <!--My Scripts Start-->
+    <script src="../js/lib/input_checker.js"></script>
+    <script src="../js/lib/date_helper.js"></script>
+    <script src="../js/task_handlers/obj_task.js"></script>
+    <script src="../js/user_handlers/obj_user.js"></script>
+    <!--My Scripts End-->
+    
+    <div ng-view></div>
+
+    <!--Page Handlers-->
+    <script src="../js/page-handlers/login-page.handler.js"></script>
+    
+</body>
+
+</html>

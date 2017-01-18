@@ -1,0 +1,113 @@
+.open-close {
+    cursor: pointer;
+}
+
+.request_div {
+    width: 75%;
+    display: block;
+    margin: 0 auto 15px;
+    padding: 15px 15px;
+    border: solid #000;
+    border-width: 1px 1px;
+}
+
+.request_email{
+    width: 100%;
+    border: none;
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.request_accept {
+    font-family: Arial;
+    color: #5EDE24 !important;
+    font-size: 15px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 2px;
+    width: 64%;
+    border: 2px solid #5EDE24;
+}
+
+.request_accept:hover {
+    background-color: #5EDE24;
+    color: white !important;
+    text-decoration: none;
+}
+
+.request_cancel {
+    width: 30%;
+    font-family: Arial;
+    color: red !important;
+    font-size: 15px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 2px;
+    border: 2px solid red;
+}
+
+.request_cancel:hover {
+    background-color: red;
+    color: white !important;
+    text-decoration: none;
+}
+
+.request_button {
+    color: white;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+.request_button:active {
+  top: 5px;
+  box-shadow: none;
+}
+
+.friends-div {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.share-tasks-friend-name {
+    font-family: Arial;
+    color: white;
+    font-size: 17px;
+    background-color: #5EDE24;
+    text-decoration: none;
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 50%;
+    padding-left: 5%;
+    border: transparent;
+}
+
+.share-tasks-friend-remove {
+    font-family: Arial;
+    color: grey;
+    font-size: 17px;
+    background-color: white;
+    text-decoration: none;
+    -webkit-border-radius: 17;
+    -moz-border-radius: 17;
+    border-radius: 17px;
+    border: solid grey 3px;
+    outline: none;
+    margin-bottom: 5px;
+    width: 30%;
+    margin-right: 0px;
+}
+.share-tasks-friend-remove:hover {
+  background: grey;
+  color: white;
+  text-decoration: none;
+}

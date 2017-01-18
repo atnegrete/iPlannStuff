@@ -1,0 +1,51 @@
+<div class="container-fluid center" sign-up-directive>
+    <div class="col-sm-12">
+        <div align="center" id="logbox">
+            <form id="signup" name="signup">
+                <h2 align="center">create an account</h2>
+                <input name="user" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass" />
+                <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass" autocomplete="off"/>
+                <input name="password2" type="password" placeholder="Confirm password" required="required" class="input pass" autocomplete="off"/>
+                <input name="email" type="email" placeholder="Email address" class="input pass" />
+                <input name="phone" type="text" placeholder="Enter phone. (Numbers only)" required="required" class="input pass" />
+                <select name="carrier" class="input pass" required="required">
+                    <option value="" disabled selected> Choose Carrier </option>
+                    <option value="@vtext.com">Verizon</option>
+                    <option value="@tmomail.net">T-Mobile</option>
+                    <option value="@mobile.mycingular.com">Cingular</option>
+                    <option value="@message.alltel.com">Alltel</option>
+                    <option value="@messaging.sprintpcs.com">Sprint</option>
+                    <option value="@myboostmobile.com">Boost</option>
+                    <option value="@messaging.nextel.com">Nextel</option>
+                    <option value="@vmobl.com">Virgin Mobile</option>
+                    <option value="@txt.att.net">AT&T</option>
+                </select>
+                <select name="time_zone" class="input pass" required="required">
+                    <option value="" disabled selected> Choose Time Zone </option>
+                    <option value="1">Eastern</option>
+                    <option value="2">Central</option>
+                    <option value="3">Mountain</option>
+                    <option value="4">Mountain no DST</option>
+                    <option value="5">Pacific</option>
+                    <option value="6">Alaska</option>
+                    <option value="7">Hawaii</option>
+                    <option value="8">Hawaii no DST</option>
+                </select>
+                <input type="submit" value="Sign me up!" class="inputButton" />
+                <div class="text-center">
+                    <a href="#login" id="">Already have an Account? Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Sign Up Page handler-->
+<script>
+    // $.getScript("../js/page-handlers/signup-page.handler.js", function( data, textStatus, jqxhr ) {
+    //     //console.log( data ); // Data returned
+    //     //console.log( textStatus ); // Success
+    //     //console.log( jqxhr.status ); // 200
+    //     //console.log( "Load was performed." );
+    // });
+</script>

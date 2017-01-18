@@ -1,0 +1,12 @@
+app.directive('shareTaskDirective',function($timeout){
+    return{
+        restrict:'AC',
+        link:function(scope,elem,attrs){
+            $timeout(function(){
+                //console.log(scope.friend.id);
+                Task.addFriendClickedToShareEventHandlers(scope.friend.id);
+                Task.handleTaskSharingFriends(scope.task.shared_friends_id);
+            },0)
+        }
+    } 
+});
