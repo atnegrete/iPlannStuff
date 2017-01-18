@@ -1,12 +1,12 @@
 <?php
-$username = "anegrete_admin";
-$password = "ALan@12@123";
-$dbServer = "50.87.151.230"; 
-$dbName   = "anegrete_iplanstuff_tasks_db";
-// $username = "root";
-// $password = "";
-// $dbServer = "localhost";
-// $dbName = "iplanstuff_tasks_db";
+// $username = "anegrete_admin";
+// $password = "ALan@12@123";
+// $dbServer = "50.87.151.230"; 
+// $dbName   = "anegrete_iplanstuff_tasks_db";
+$username = "root";
+$password = "";
+$dbServer = "localhost";
+$dbName = "iplanstuff_tasks_db";
 
 function startConnection(){
     global $dbServer,$username,$password,$dbName, $conn;
